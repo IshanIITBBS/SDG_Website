@@ -1,10 +1,15 @@
 const express = require('express');
-const path = require('path') ;
 const app = express();
-const rootdir = path.dirname(require.main.filename) ;
 const main = require('./routes/main.js') ;
+const cors = require('cors');
+
+app.use(cors());
+app.use(express.json());  
 app.use(express.urlencoded({ extended: false }));
+
+
+
 
 app.use(main);
 
-app.listen(3000);
+app.listen(5000);
