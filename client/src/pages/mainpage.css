@@ -1,0 +1,30 @@
+
+.mainpage-card {
+    width:fit-content ;
+    margin: 20px auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    color: #000000;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .mainpage-body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+     gap:30px;
+  }
+
+  @media (max-width: 768px) {
+    /* For tablet screens */
+    .mainpage-body {
+      flex-direction: column; /* Stack elements vertically */
+      padding: 10px; /* Adjust padding for smaller screens */
+    }
+  }

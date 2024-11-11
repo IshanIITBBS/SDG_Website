@@ -1,44 +1,48 @@
-import React, { useState, useEffect }  from 'react';
-import IntroVideo from './intro';
-import axios from 'axios';
- 
 
-function Mainpage(){
-
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        // Fetch products from backend
-        axios.get('http://localhost:5000/') // Adjust if frontend/backend hosted differently
-            .then(response => setProducts(response.data))
-            .catch(error => console.error('Error fetching products:', error));
-    }, []);
+import React ,{useState,useEffect} from 'react';
+import Sidebar from '../components/sidebar.js';
+import Header from '../components/header';
+import OverviewCards from '../components/overviewCards';
+import Chart from '../components/chart';
+import { Grid, Container } from '@mui/material';
+import Piechart from '../components/piechart.js';
+import ProgressCircle from '../components/progresscircle.js'
+import './mainpage.css'
 
 
-const [showIntro, setShowIntro] = useState(true);
+function MainPage() {
+    const [loggedIn,setLoggedIn] = useState(false) ;
 
-    // Skip the intro video when the "Skip" button is clicked
-    const handleSkipIntro = () => {
-        setShowIntro(false);
-    };
+    useEffect(()=>{
+        fetch('http://localhost:5000/logincheck',{method:'GET',credentials:'include'})
+        .then(response=> response.json())
+        .then(data=>{
+              setLoggedIn(data.loggedIn);
+              console.log(data) ;
+              console.log(loggedIn)
+        })
+      },[])
 
-    // Automatically skip the intro after 10 seconds (optional)
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowIntro(false);
-        }, 10000); // 10 seconds
-        return () => clearTimeout(timer);
-    }, []);
+  return (
+    <>
+    <div style={{ display: 'flex' }}>
+       <div>
+         <Sidebar loggedIn={loggedIn} />
+      </div>
+       <div className='mainpage-body'>
+           <div className='mainpage-card'>
+             <Piechart/>
+          </div>
+          <div className='mainpage-card'>
+            <ProgressCircle/>
+         </div>
+          <div className='mainpage-card'>
+            <ProgressCircle/>
+         </div>
+       </div>
+    </div>
+    </>
+  );
+}
 
-        return (
-        <div className="App">
-            {showIntro ? (
-                <IntroVideo onSkip={handleSkipIntro} />
-            ) : (
-               <>{products}</>
-            )}
-        </div>
-    );
-};
-
-export default Mainpage;
+export default MainPage;

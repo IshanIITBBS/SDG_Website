@@ -1,0 +1,110 @@
+/* Quiz.css */
+.quiz-body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #111010;
+}
+
+.quiz-score{
+    background: linear-gradient(to right, #d4bded, #74a6fd);
+    border-radius: 5px;
+    color: #e6e6e6;
+}
+.quiz-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+
+
+h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+.question {
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.question:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.option-label {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.option-input {
+    margin-right: 10px;
+    accent-color: #6a11cb;
+}
+
+
+.option-text {
+    font-size: 1.2em;
+}
+
+/* Highlight correct and incorrect options */
+.correct {
+    background-color: #19ff34; /* Light green for correct answers */
+}
+
+.incorrect {
+    background-color: #ff1717; /* Light red for incorrect answers */
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background: #6a11cb;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background: #2575fc;
+}
+
+
+.answer-reveal {
+    font-size: 1em;
+    color: #e6e6e6;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: rgba(18, 1, 255, 0.959);
+    border-radius: 5px;
+}
+
