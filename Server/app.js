@@ -19,7 +19,7 @@ const store = new Mongostore({
 })
 
 app.use(cors({
-    origin: 'https://sdg-website.onrender.com', // Only allowed origin
+    origin: 'https://IshanIITBBS.github.io/SDG_Website', // Only allowed origin
     credentials: true,               // Allow credentials (cookies, sessions)
   }));
 
