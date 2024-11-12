@@ -7,7 +7,7 @@ const GlobalContext = createContext();
 // Create provider component
 export const GlobalProvider = ({ children }) => {
   // Define your global variable here
-  const [globalVariable, setGlobalVariable] = useState("https://sdg-website.onrender.com");
+  const [globalVariable, setGlobalVariable] = useState("https://n9qrkhsl-5000.inc1.devtunnels.ms");
 
   return (
     <GlobalContext.Provider value={{ globalVariable, setGlobalVariable }}>

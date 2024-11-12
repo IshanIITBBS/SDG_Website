@@ -46,6 +46,7 @@ function App() {
                     <Route path="/environment" element={<EnvironmentalConservation/>} />
                     <Route path="/about" element={<AboutPage/>} />
                     <Route path="/references" element={<References/>} />
+                    <Route path="/stats" element={<StatsPage/>} />
                 </Routes>
             </div>
         </Router>

@@ -18,10 +18,34 @@ const store = new Mongostore({
     collection:'sessions' 
 })
 
-app.use(cors({
-    origin: 'https://IshanIITBBS.github.io/SDG_Website', // Only allowed origin
-    credentials: true,               // Allow credentials (cookies, sessions)
-  }));
+// app.use(cors({
+//     origin: 'https://n9qrkhsl-3000.inc1.devtunnels.ms', // Only allowed origin
+//     // origin:'http://localhost:3001',
+//     credentials: true,               // Allow credentials (cookies, sessions)
+//   }));
+
+  app.use(
+    cors({
+      origin: [
+        "http://localhost:3000",
+        "http://127.0.0.1:8000",
+        "https://n9qrkhsl-3000.inc1.devtunnels.ms",
+      ],
+      origin: true,
+      methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+      credentials: true,
+    })
+  );
+  
+  app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", [
+      //"https://n9qrkhsl-3000.inc1.devtunnels.ms",
+       "http://localhost:3000",
+    ]);
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    next();
+  });
 
 
 app.use(cookieParser());
