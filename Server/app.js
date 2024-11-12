@@ -11,7 +11,7 @@ const session = require('express-session') ;
 const authroutes = require('./routes/auth.js') ;
 const User = require('./models/user.js')
 
-const MongoUri = 'mongodb+srv://Ishan:MongoDB%406077@cluster0.thxtfon.mongodb.net/Environomics_Project' ;
+const MongoUri = 'mongodb+srv://Ishan:MongoDB%406077@cluster0.thxtfon.mongodb.net/Environomics_Project?retryWrites=true&w=majority&tls=true' ;
 const Mongostore = MongoSessionConnect(session);
 const store = new Mongostore({
     uri : MongoUri,
@@ -19,7 +19,7 @@ const store = new Mongostore({
 })
 
 app.use(cors({
-    origin: 'http://localhost:3000', // Only allowed origin
+    origin: 'https://sdg-website.onrender.com', // Only allowed origin
     credentials: true,               // Allow credentials (cookies, sessions)
   }));
 

@@ -21,6 +21,8 @@ function MainPage() {
               setLoggedIn(data.loggedIn);
               console.log(data) ;
               console.log(loggedIn)
+        }).catch(err=>{
+          console.log(err);
         })
       },[])
 
