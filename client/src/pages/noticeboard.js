@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './noticeboard.css';
+import { useGlobalContext } from '../globalcontext';
 
 const NoticeBoard = () => {
   const [notices, setNotices] = useState([]);
-
+  const { globalVariable, setGlobalVariable } = useGlobalContext();
   useEffect(() => {
-    fetch('http://localhost:5000/noticeboard')
+    fetch(`${globalVariable}/noticeboard`)
       .then(response => response.json())
       .then(data => setNotices(data))
       .catch(error => console.error('Error fetching notices:', error));

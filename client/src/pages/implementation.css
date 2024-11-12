@@ -1,0 +1,84 @@
+/* ImplementationStrategies.css */
+.implementation-page {
+    font-family: 'Arial', sans-serif;
+    background: #f5f5f5;
+    padding: 30px 20px;
+    font-family: 'Cambria Math'
+  }
+  
+  .implementation-header {
+    text-align: center;
+    color: white;
+    padding: 80px 20px;
+    margin-bottom: 30px;
+    background-image: url('../assets/Image6.jpg'); /* Example background image */
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+  }
+  
+  .implementation-header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  
+  .subtitle {
+    font-size: 1.25rem;
+    color: #d4f1c5;
+  }
+  
+  .implementation-section-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .implementation-section {
+    background-color: rgba(45, 106, 79, 0.05);
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    height: 400px; /* Increased card height */
+    transition: background 0.3s ease;
+  }
+  
+  .implementation-section h2 {
+    font-size: 1.8rem;
+    color: #2d6a4f;
+    margin-bottom: 10px;
+  }
+  
+  .implementation-section p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .implementation-section:hover {
+    background-color: rgba(45, 106, 79, 0.1);
+  }
+  
+  .implementation-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2d6a4f;
+    color: white;
+    margin-top: 40px;
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .implementation-section-wrapper {
+      flex-direction: column; /* Stack cards vertically on smaller screens */
+    }
+  
+    .implementation-header h1 {
+      font-size: 2rem;
+    }
+  
+    .implementation-footer {
+      font-size: 1rem;
+    }
+  }
+  

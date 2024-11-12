@@ -1,13 +1,13 @@
 import React,{useState,useEffect} from 'react';
 import './missiondetail.css';
 import { useParams } from 'react-router-dom';
-
+import { useGlobalContext } from '../globalcontext';
 const MissionPage = () => {
     const [mission, setMission] = useState([]);
     const params = useParams() ;
-    
+    const { globalVariable, setGlobalVariable } = useGlobalContext();
   useEffect(() => {
-    fetch(`http://localhost:5000/missionboard/${params.missionId}`)
+    fetch(`${globalVariable}/missionboard/${params.missionId}`)
       .then(response => response.json())
       .then(data => setMission(data))
       .catch(error => console.error('Error fetching notices:', error));

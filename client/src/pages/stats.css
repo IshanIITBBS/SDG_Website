@@ -1,0 +1,18 @@
+/* src/styles/stats.css */
+.dashboard {
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .dashboard h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .recharts-wrapper {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  

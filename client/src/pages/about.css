@@ -1,0 +1,54 @@
+/* src/pages/about.css */
+
+.about-container {
+    padding: 40px;
+    text-align: center;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .about-description {
+    font-size: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .aboutcontainer h1{
+    font-size: 36px;
+    color: #2d87c4;
+  }
+  
+  .aboutcontainer h2 {
+    font-size: 28px;
+    color: #333;
+    margin-top: 40px;
+  }
+  
+  .developers-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .developer-card {
+    background-color: #f0f4f8;
+    border: 1px solid #d1dce3;
+    border-radius: 8px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .developer-card h3 {
+    margin: 0;
+    color: #2d87c4;
+  }
+  
+  .developer-card p {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  

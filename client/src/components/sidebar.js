@@ -1,5 +1,4 @@
-// Sidebar.js
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Drawer,
@@ -14,20 +13,17 @@ import {
   Dashboard as DashboardIcon,
   Campaign as CampaignIcon,
   People as PeopleIcon,
-  ChevronLeft as ChevronLeftIcon,
-  ChevronRight as ChevronRightIcon,
+  Menu as MenuIcon, // New hamburger menu icon
 } from '@mui/icons-material';
 
-export default function Sidebar({loggedIn}) {
+export default function Sidebar({ loggedIn }) {
   const [open, setOpen] = useState(true);
-  const navigate = useNavigate() ;
-
-
+  const navigate = useNavigate();
 
   const toggleDrawer = () => {
     setOpen(!open);
   };
-  
+
   return (
     <div style={{ display: 'flex' }}>
       <Drawer
@@ -42,44 +38,79 @@ export default function Sidebar({loggedIn}) {
             width: open ? "200px" : "80px",
             transition: 'width 0.3s',
             overflowX: 'hidden',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+            color: 'white',
           },
         }}
       >
+        {/* Hamburger Menu Icon */}
         <div style={{ display: 'flex', justifyContent: open ? 'flex-end' : 'center', padding: '10px' }}>
           <IconButton onClick={toggleDrawer}>
-            {open ? <ChevronLeftIcon/> : <ChevronRightIcon />}
+            <MenuIcon style={{ color: 'white' }} />
           </IconButton>
         </div>
         <Divider />
         <List>
-          <ListItem button>
-            <ListItemIcon><CampaignIcon  style={{width:"3vh"}}/></ListItemIcon>
-            {open && <ListItemText primary="Events"  onClick={()=>{navigate('/noticeboard')}}/>}
+        <ListItem button onClick={() => { navigate('/info'); }}>
+            <ListItemIcon><CampaignIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+            {open && <ListItemText primary="Info" />}
           </ListItem>
-          <ListItem button>
-            <ListItemIcon><CampaignIcon style={{width:"3vh"}}/></ListItemIcon>
-            {open && <ListItemText primary="Programmes"   onClick={()=>{navigate('/missionboard')}} />   }
+          <ListItem button onClick={() => { navigate('/sdg'); }}>
+            <ListItemIcon><DashboardIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+            {open && <ListItemText primary="Goals" />}
           </ListItem>
-          <ListItem button>
-            <ListItemIcon><DashboardIcon style={{width:"3vh"}}/></ListItemIcon>
-            {open && <ListItemText primary="Quiz"   onClick={()=>{navigate('/quiz')}} />   }
+          <ListItem button onClick={() => { navigate('/significance'); }}>
+            <ListItemIcon><CampaignIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+            {open && <ListItemText primary="Significance" />}
           </ListItem>
-          <ListItem button>
-            <ListItemIcon><PeopleIcon style={{width:"3vh"}}/></ListItemIcon>
-            {open && <ListItemText primary="Login"   onClick={()=>{navigate('/login')}} />   }
+          <ListItem button onClick={() => { navigate('/implementation'); }}>
+            <ListItemIcon><CampaignIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+            {open && <ListItemText primary="Strategies" />}
           </ListItem>
-          <ListItem button>
-           { loggedIn && <ListItemIcon><PeopleIcon style={{width:"3vh"}}/></ListItemIcon> }
-            {open && loggedIn && <ListItemText primary="Post Quiz"   onClick={()=>{navigate('/quizform')}} />   }
+          <ListItem button onClick={() => { navigate('/environment'); }}>
+            <ListItemIcon><CampaignIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+            {open && <ListItemText primary="Environmental Contribution" />}
           </ListItem>
-          <ListItem button>
-           {loggedIn&& <ListItemIcon><PeopleIcon style={{width:"3vh"}} /></ListItemIcon> }
-            {open && loggedIn &&<ListItemText primary="Post Notice" onClick={()=>{navigate('/noticeform')}} />}
+          <ListItem button onClick={() => { navigate('/monitor'); }}>
+            <ListItemIcon><CampaignIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+            {open && <ListItemText primary="Why SDG" />}
           </ListItem>
-          <ListItem button>
-           {loggedIn && <ListItemIcon><PeopleIcon style={{width:"3vh"}}/></ListItemIcon>}
-            {open && loggedIn && <ListItemText primary="Post Mission" onClick={()=>{navigate('/missionform')}}  />}
+          <ListItem button onClick={() => { navigate('/noticeboard'); }}>
+            <ListItemIcon><CampaignIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+            {open && <ListItemText primary="Events" />}
           </ListItem>
+          <ListItem button onClick={() => { navigate('/missionboard'); }}>
+            <ListItemIcon><CampaignIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+            {open && <ListItemText primary="Programmes" />}
+          </ListItem>
+          <ListItem button onClick={() => { navigate('/quiz'); }}>
+            <ListItemIcon><DashboardIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+            {open && <ListItemText primary="Quiz" />}
+          </ListItem>
+          <ListItem button onClick={() => { navigate('/stats'); }}>
+            <ListItemIcon><DashboardIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+            {open && <ListItemText primary="Stats" />}
+          </ListItem>
+          <ListItem button onClick={() => { navigate('/login'); }}>
+            <ListItemIcon><PeopleIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+            {open && <ListItemText primary="Login" />}
+          </ListItem>
+          {loggedIn && (
+            <>
+              <ListItem button onClick={() => { navigate('/quizform'); }}>
+                <ListItemIcon><PeopleIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+                {open && <ListItemText primary="Post Quiz" />}
+              </ListItem>
+              <ListItem button onClick={() => { navigate('/noticeform'); }}>
+                <ListItemIcon><PeopleIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+                {open && <ListItemText primary="Post Notice" />}
+              </ListItem>
+              <ListItem button onClick={() => { navigate('/missionform'); }}>
+                <ListItemIcon><PeopleIcon style={{ width: "3vh", color: 'white' }} /></ListItemIcon>
+                {open && <ListItemText primary="Post Mission" />}
+              </ListItem>
+            </>
+          )}
         </List>
       </Drawer>
       <main style={{ flexGrow: 1, padding: '20px' }}>
@@ -88,4 +119,3 @@ export default function Sidebar({loggedIn}) {
     </div>
   );
 }
-

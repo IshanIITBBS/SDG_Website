@@ -1,0 +1,15 @@
+/* Add this to your CSS to style the video container */
+
+
+.video-embed {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+iframe {
+  border: none;
+  max-width: 100%;
+  height: auto;
+}

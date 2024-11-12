@@ -1,0 +1,67 @@
+.development-page {
+    font-family: 'Cambria Math', serif;
+    color: #333;
+  }
+  
+  .development-header {
+    background-image: url('../assets/Image9.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    color: white;
+  }
+  
+  .development-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .development-subtitle {
+    font-size: 1.5rem;
+    font-weight: lighter;
+  }
+  
+  .development-cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .development-card {
+    width: 45%;
+    min-height: 400px; /* Increased height */
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    color: #333;
+    transition: transform 0.5s ease-in-out;
+    animation: fadeRight 1s ease-out forwards;
+  }
+  
+  .development-card h2 {
+    color: #2d89e5; /* Blue color for headings */
+    font-size: 1.5rem;
+  }
+  
+  .development-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+ 
+  

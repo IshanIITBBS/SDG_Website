@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './login.css' ;
 import axios from 'axios';
 import React,{useEffect , useState} from 'react';
-
+import { useGlobalContext } from '../globalcontext';
 
 
 function Login() {
@@ -12,11 +12,11 @@ function Login() {
     const [csrfToken, setCsrfToken] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const { globalVariable, setGlobalVariable } = useGlobalContext();
     useEffect(() => {
         const fetchCsrfToken = async () => {
           try {
-            const response = await axios.get('http://localhost:5000/csrf-token',{ withCredentials: true });
+            const response = await axios.get(`${globalVariable}/csrf-token`,{ withCredentials: true });
             setCsrfToken(response.data.csrfToken);
           } catch (error) {
             console.error('Error fetching CSRF token:', error);
@@ -30,7 +30,7 @@ function Login() {
         
         try {
           const response = await axios.post(
-            'http://localhost:5000/login',
+            `${globalVariable}/login`,
             { email, password },
             {
               headers: {

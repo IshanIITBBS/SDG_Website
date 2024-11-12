@@ -2,7 +2,7 @@
 
 import React, { useState,useEffect } from 'react';
 import './quiz.css'; // Import the CSS file
-
+import { useGlobalContext } from '../globalcontext';
 // // Sample quiz data
 // const quizData = [
 //     {
@@ -52,9 +52,10 @@ const Quiz = () => {
     const [score, setScore] = useState(0);
     const [quizData,setQuizData]=useState([]) ;
     var [userAnswers, setUserAnswers] = useState([]);
-    
+    const { globalVariable, setGlobalVariable } = useGlobalContext();
+
   useEffect(() => {
-    fetch('http://localhost:5000/quiz')
+    fetch(`${globalVariable}/quiz`)
       .then((response) => response.json() )
       .then(data=>
         {

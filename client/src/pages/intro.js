@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './intro.css';
 import { useNavigate } from 'react-router-dom';
 import introvedio from '../assets/intro.mp4';
-
+import { useGlobalContext } from '../globalcontext';
 
 const IntroVideo = ({ onSkip }) => {
 
     const [showIntro, setShowIntro] = useState(true);
     const navigate = useNavigate();
-
+    const { globalVariable, setGlobalVariable } = useGlobalContext();
     // Skip the intro video when the "Skip" button is clicked
     const handleSkipIntro = () => {
         navigate('/home') ;

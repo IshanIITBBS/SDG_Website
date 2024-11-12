@@ -5,11 +5,12 @@ import axios from 'axios';
 import React,{useEffect , useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './noticeform.css'
+import { useGlobalContext } from '../globalcontext';
 
 function Noticeform() {
     
     const navigate = useNavigate();
-
+    const { globalVariable, setGlobalVariable } = useGlobalContext();
 
     const [csrfToken, setCsrfToken] = useState('');
     const [question, setQuestion] = useState('');
@@ -22,7 +23,7 @@ function Noticeform() {
     useEffect(() => {
         const fetchCsrfToken = async () => {
           try {
-            const response = await axios.get('http://localhost:5000/csrf-token',{ withCredentials: true });
+            const response = await axios.get(`${globalVariable}/csrf-token`,{ withCredentials: true });
             setCsrfToken(response.data.csrfToken);
           } catch (error) {
             console.error('Error fetching CSRF token:', error);
@@ -36,7 +37,7 @@ function Noticeform() {
         
         try {
           const response = await axios.post(
-            'http://localhost:5000/admin/postquiz',
+            `${globalVariable}//admin/postquiz`,
             { question,optionA,optionB,optionC,optionD,answer },
             {
               headers: {

@@ -1,48 +1,22 @@
-// ProgressCircle.js
+// src/components/StateProgressCircle.js
 import React from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
-const ProgressCircle = ({ progress = 75 }) => {
-  const data = [
-    { value: progress },       // completed portion
-    { value: 100 - progress }, // remaining portion
-  ];
-
-  const COLORS = ['#00C49F', '#d3d3d3']; // Color for completed and remaining parts
+const StateProgressCircle = ({ stateName, currentSDG, previousSDG }) => {
+  const percentage = (currentSDG / 100) * 100;
 
   return (
-    <div style={{ width: '15vw', height: '15vw', position: 'relative' }}>
-      <ResponsiveContainer>
-        <PieChart>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            innerRadius={70}    // Controls the inner hollow part
-            outerRadius={90}     // Controls the thickness of the ring
-            startAngle={90}
-            endAngle={-270}
-            dataKey="value"
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index]} />
-            ))}
-          </Pie>
-        </PieChart>
-      </ResponsiveContainer>
-      <div style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        fontSize: '24px',
-        fontWeight: 'bold',
-        color: '#333'
-      }}>
-        {progress}%
+    <div className="state-progress-circle">
+      <h3>{stateName}</h3>
+      <div style={{ width: 150, height: 150, marginBottom: '10px' }}>
+        <CircularProgressbar value={percentage} text={`${currentSDG}%`} />
+      </div>
+      <div>
+        <strong>Previous SDG Index:</strong> {previousSDG}%
       </div>
     </div>
   );
 };
 
-export default ProgressCircle;
+export default StateProgressCircle;

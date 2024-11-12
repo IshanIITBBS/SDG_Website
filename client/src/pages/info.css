@@ -1,0 +1,112 @@
+/* General styles */
+body {
+    font-family: 'Cambria Math', Times New Roman, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+  }
+  
+  /* Title Section */
+  .info-header {
+    background-image: url('../assets/Image7.jpg'); /* Add the actual image URL here */
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+  }
+  
+  .info-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .info-subtitle {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-top: 0;
+  }
+  
+  /* Cards Section */
+  .cards-section {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to next row */
+    justify-content: space-between; /* Ensure cards are spaced evenly */
+    padding: 50px;
+  }
+  
+  .card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 30%; /* Adjust width to fit multiple cards in a row */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: scale(0);
+    animation: scaleIn 1s forwards;
+  }
+  
+  .card:nth-child(odd) {
+    animation-delay: 0.5s; /* Delay for odd cards */
+  }
+  
+  .card:nth-child(even) {
+    animation-delay: 1s; /* Delay for even cards */
+  }
+  
+  /* Headings */
+  .card h2 {
+    color: #007bff; /* Blue color for headings */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Info Section */
+  .info-section {
+    padding: 50px 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-top: 50px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+  }
+  
+  /* Animation for cards */
+  @keyframes scaleIn {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive for smaller screens */
+  @media (max-width: 768px) {
+    .cards-section {
+      justify-content: center; /* Center the cards on smaller screens */
+    }
+  
+    .card {
+      width: 80%; /* Make cards wider on smaller screens */
+      margin-bottom: 20px;
+    }
+  }
+  

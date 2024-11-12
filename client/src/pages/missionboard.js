@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './noticeboard.css';
 import { useNavigate } from 'react-router-dom';
-
+import { useGlobalContext } from '../globalcontext';
 const MissionBoard = () => {
   const [notices, setNotices] = useState([]);
   const navigate = useNavigate();
-
+  const { globalVariable, setGlobalVariable } = useGlobalContext();
   useEffect(() => {
-    fetch('http://localhost:5000/missionboard')
+    fetch(`${globalVariable}/missionboard`)
       .then(response => response.json())
       .then(data => setNotices(data))
       .catch(error => console.error('Error fetching notices:', error));

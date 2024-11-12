@@ -5,12 +5,12 @@ import './login.css' ;
 import axios from 'axios';
 import React,{useEffect , useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { useGlobalContext } from '../globalcontext';
 
 function Missionform() {
     const options = ["Completed", "Ongoing" ,"Abandoned" , "Upcoming"] ;
     const navigate = useNavigate();
-
+    const { globalVariable, setGlobalVariable } = useGlobalContext();
 
     const [csrfToken, setCsrfToken] = useState('');
     const [title, setTitle] = useState('');
@@ -21,7 +21,7 @@ function Missionform() {
     useEffect(() => {
         const fetchCsrfToken = async () => {
           try {
-            const response = await axios.get('http://localhost:5000/csrf-token',{ withCredentials: true });
+            const response = await axios.get(`${globalVariable}/csrf-token`,{ withCredentials: true });
             setCsrfToken(response.data.csrfToken);
           } catch (error) {
             console.error('Error fetching CSRF token:', error);
@@ -35,7 +35,7 @@ function Missionform() {
         
         try {
           const response = await axios.post(
-            'http://localhost:5000/admin/postmission',
+            `${globalVariable}/admin/postmission`,
             { title, description,status,imageurl},
             {
               headers: {
